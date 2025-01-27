@@ -1,0 +1,40 @@
+<div id="container-instructions">
+
+    <h1>Instructions-Basic Operation</h1>
+
+    <hr />
+
+    <div class="instructions well">
+
+        <p>
+            <font size=4>
+            In the next block, you again need to press the key associated with the color of the text on the screen.
+
+            <br /><br />
+            Importantly, you should continue to respond only to the <b>INK COLOR</b> of each word. You should <b>NOT</b> respond based on the content of the word. For example, if you see the word 'RED' written in blue ink, you should press the key corresponding to blue.
+            </font>
+
+        </p>
+        <script type="text/javascript">
+            $("body").unbind("keydown").focus().keydown(continue_handler);
+        </script>
+
+    </div>
+
+<hr />
+
+<div class="instructionsnav">
+    <div class="row">
+        <div class="col-xs-2">
+         </div>
+         <div class="col-xs-8">
+            <button type="button" id="next" value="next" class="btn btn-primary btn-lg center-block continue">
+                Press space to continue <span class="glyphicon glyphicon-arrow-right"></span>
+            </button>
+         </div>
+         <div class="col-xs-2">
+        </div>
+    </div>
+</div>
+
+</div>

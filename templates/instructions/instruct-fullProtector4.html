@@ -1,0 +1,54 @@
+<script>
+    $("body").unbind("keydown").focus().keydown(continue_handler);
+</script>
+
+
+<div id="container-instructions">
+
+    <h1>Protector Game: Instructions</h1>
+
+    <hr/>
+
+    <div class="instructions well">
+
+        <div class="row container-fluid">
+            <p>
+                <font size=4> 
+                    The number of bombs you add to your bank for <b><font style="color:red">incorrect responses</font></b> can either be LOW-PENALTY or HIGH-PENALTY. 
+                    <br><br>
+                    On <b>LOW-PENALTY</b> turns, the right side of the image will look like this. On these turns, each <b><font style="color:red">incorrect response</font></b><b> adds <span id="lowPunish2"></span> bomb</b>, which destroys <span id="lowPunish2"></span> gem.
+                    <br><br>
+                    <img src='{{ server_location }} static/images/instructionImage/LossPen1.png' height="100" >
+                    
+                    
+                    <br><br><br><br>
+                    On <b>HIGH-PENALTY</b> turns, the right side of the image will look like this. On these turns, each <b><font style="color:red">incorrect response</font></b><b> adds <span id="highPunish2"></span> bombs</b>, which destroys <span id="highPunish2"></span> gem.
+                    <br><br>
+                    <img src='{{ server_location }} static/images/instructionImage/LossPen2.png' height="100" >
+                </font>
+            </p>
+        </div>
+</div>
+<script type="text/javascript">
+            $('#highPunish2').html(highPun.toFixed(0));
+            $('#lowPunish2').html(lowPun.toFixed(0));
+            $("body").unbind("keydown").focus().keydown(continue_handler);
+</script>
+
+<hr />
+
+<div class="instructionsnav">
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+            <button type="button" id="next" value="next" class="btn btn-success btn-lg center-block continue">
+                Continue
+            </button>
+        </div>
+        <div class="col-xs-2">
+        </div>
+    </div>
+</div>
+
+</div>

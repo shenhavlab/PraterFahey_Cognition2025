@@ -1,0 +1,54 @@
+<script>
+    $("body").unbind("keydown").focus().keydown(continue_handler);
+    if(protector) $("#reminder").html("As a reminder, at the very beginning, you had 1200 gems in your bank, which is equivalent to $12 of bonus payment <b>(1 gem = 1 cent)</b>.<br><br>");
+</script>
+
+
+<div id="container-instructions">
+
+    <h1>Collector Game: Instructions</h1>
+
+    <hr/>
+
+    <div class="instructions well">
+
+        <div class="row container-fluid">
+            <p>
+                <font size=4> 
+                    The number of gems you add to your bank for <b><font style="color:green">correct responses</font></b> can either be LOW-VALUE or HIGH-VALUE.
+                    <br><br>
+                    On <b>LOW-VALUE</b> turns, the left side of the image will look like this. On these turns, <b>each <font style="color:green">correct response</font> adds <span id="lowReward"></span> gem</b>.
+                    <br><br>
+                    <img src='{{ server_location }} static/images/instructionImage/Gain1.png' height="100">
+                    
+                    <br><br><br><br>
+                    On <b>HIGH-VALUE</b> turns, the left side of the image will look like this. On these turns, <b>each <font style="color:green">correct response</font> adds <span id="highReward"></span> gems</b>.
+                    <br><br>
+                    <img src='{{ server_location }} static/images/instructionImage/Gain2.png' height="100">
+                </font>
+            </p>
+        </div>
+</div>
+ <script type="text/javascript">
+            $('#lowReward').html(lowGain.toFixed(0));
+            $('#highReward').html(highGain.toFixed(0));
+            $("body").unbind("keydown").focus().keydown(continue_handler);
+</script>
+
+<hr />
+
+<div class="instructionsnav">
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+            <button type="button" id="next" value="next" class="btn btn-success btn-lg center-block continue">
+                Continue
+            </button>
+        </div>
+        <div class="col-xs-2">
+        </div>
+    </div>
+</div>
+
+</div>

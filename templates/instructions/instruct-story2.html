@@ -1,0 +1,75 @@
+<script>
+    $("body").unbind("keydown").focus().keydown(continue_handler);
+    if(collector & protector) $("#nGamesByRole").html("You will play two games. In the games");
+    else $("#nGamesByRole").html("You will play a game. In the game");
+
+    if(protector & collector) $("#initialByRole").html("<b>When you start these games, you have 1200 gems in your gem bank, which is equivalent to $12 of bonus payment.</b><br><br>");
+    if(protector & !collector) $("#initialByRole").html("<b>When you start the game, you have 1200 gems in your gem bank, which is equivalent to $12 of bonus payment.</b><br><br>");
+</script>
+
+
+<div id="container-instructions">
+
+    <h1>Rules of the game</h1>
+
+    <hr/>
+
+    <div class="instructions well">
+
+        <div class="row container-fluid">
+            <p id="adjustedText">
+                <font size=4> 
+                
+                <script>
+                    $(document).ready(function(){
+                        if (protector & collector) { 
+                            var text = "You have mastered the basics of both games!<br><br>When you play the games, you will have the opportunity to either collect more bonus money or protect your bonus money. Your bonus money will be kept in your bank in the form of gems. We have converted your initial bonus money of $" + 12 + " into " + 1200 + " gems (1 cent = 1 gem), and placed them in your bank.<br><br>"
+                        } else if (protector & !collector){
+                            var text = "You have mastered the basics of the game!<br><br>When you play the game, you will have the opportunity to either collect more bonus money or protect your bonus money. Your bonus money will be kept in your bank in the form of gems. We have converted your initial bonus money of $" + 12 + " into " + 1200 + " gems (1 cent = 1 gem), and placed them in your bank.<br><br>"
+                        } else if (collector & !protector){
+                            var text = "You have mastered the basics of the game!<br><br>When you play the game, you will have the opportunity to either collect more bonus money or protect your bonus money. Your bonus money will be kept in your bank in the form of gems.<br><br>"
+                        }
+                        $("#adjustedText").prepend(text)
+                    }); 
+                </script>
+            </p>
+
+            <img src='{{ server_location }} static/images/instructionImage/Bank.png' height="100"   >
+             
+             <p id="adjustedText2">   
+                <script>
+                    $(document).ready(function(){
+                        if (protector & collector) { 
+                            var text2 = "<br><br>After you have finished both games, the gems remaining in your bank will be converted back into real money and given to you as bonus money."
+                        } else if (protector & !collector){
+                            var text2 = "<br><br>After you have finished the game, the gems remaining in your bank will be converted back into real money and given to you as bonus money."
+                        } else if (collector & !protector){
+                            var text2 = "<br><br>After you have finished the game, the gems remaining in your bank will be converted back into real money and given to you as bonus money."
+                        }
+                        $("#adjustedText2").prepend(text2)
+                    }); 
+                </script>
+
+
+                </font>
+            </p>
+        </div>
+</div>
+
+<hr />
+
+<div class="instructionsnav">
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+            <button type="button" id="next" value="next" class="btn btn-success btn-lg center-block continue">
+                Continue
+            </button>
+        </div>
+        <div class="col-xs-2">
+        </div>
+    </div>
+</div>
+
+</div>

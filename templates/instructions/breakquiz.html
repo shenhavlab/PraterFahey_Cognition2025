@@ -1,0 +1,429 @@
+<div id="container-instructions">
+
+    <h1>Quiz</h1>
+
+    <hr />
+
+    <div class="instructions well">
+
+        <p>
+            Please answer the following questions based on the instructions you just read.
+        </p>
+        <hr />
+        <img id="cue1" src="" height="100">
+
+        <ol type="1">
+
+            <!-- <img src='{{ server_location }} static/images/cues/RLP/Gain1_Pun1.png' height="100">
+            <img src='{{ server_location }} static/images/cues/RLP/Gain1_Pun2.png' height="100"> -->
+            <li>According to the image above, how many <span id='question1'></span> ?
+                <form>
+                    <input type="radio" class="answer" name="q1answer" id="cLiL1"> <span id='cLiL1A'></span><br />
+                    <input type="radio" class="answer" name="q1answer" id="cLiH1"> <span id='cLiH1A'></span><br />
+                    <input type="radio" class="answer" name="q1answer" id="cHiL1"> <span id='cHiL1A'></span><br />
+                    <input type="radio" class="answer" name="q1answer" id="cHiH1"> <span id='cHiH1A'></span><br />
+                </form>
+            </li>
+
+        
+        <img id="cue2" src="" height="100">
+
+            <!-- <img src='{{ server_location }} static/images/cues/RLP/Gain1_Pun1.png' height="100">
+            <img src='{{ server_location }} static/images/cues/RLP/Gain2_Pun1.png' height="100"> -->
+            <li>According to the image above, how many <span id='question2'></span> ?
+                <form>
+                    <input type="radio" class="answer" name="q2answer" id="cLiL2"> <span id='cLiL2A'></span><br />
+                    <input type="radio" class="answer" name="q2answer" id="cLiH2"> <span id='cLiH2A'></span><br />
+                    <input type="radio" class="answer" name="q2answer" id="cHiL2"> <span id='cHiL2A'></span><br/>
+                    <input type="radio" class="answer" name="q2answer" id="cHiH2"> <span id='cHiH2A'></span><br />
+
+                </form>
+            </li>
+            <hr />
+
+
+        
+
+        </ol>
+       
+    </div>
+
+<hr />
+
+<div class="instructionsnav">
+        <div class="row" id="buttons">
+           
+            <button type="button" id="submitButton" class="btn btn-primary btn-lg pull-right" onclick="return submit_onclick()">
+                    Submit Answer
+            </button>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+     $('#blockid').html(blockID.toFixed(0));
+        var roleCue = mainBlockType.substring(0,4);
+
+        
+      
+       
+
+        if(roleCue=='Gain') 
+        {
+            var role = 'COLLECTOR';
+            var items = 'gems and bombs';
+            
+            var question ='gems will be added for a correct response and how many bombs will be added for an incorrect response';
+            
+
+            $('#cLiL1A,#cLiL2A').html('<b>'+lowGain.toFixed(0)+'</b>'+ " <b>gem</b> will be   <b>added</b> for each <b>correct</b> response and " +'<b>'+lowGain.toFixed(0) +'</b>'+ " <b>bomb</b> will be <b>removed</b> for each <b>incorrect</b> response");
+            $('#cLiH1A,#cLiH2A').html('<b>' +lowGain.toFixed(0)+'</b>'+ " <b>gem</b> will be  <b>added</b> for each <b>correct</b> response and " +'<b>'+highGain.toFixed(0)+'</b>' + " <b>bombs</b> will be <b>removed</b> for each <b>incorrect</b> response");
+            $('#cHiL1A,#cHiL2A').html('<b>'+ highGain.toFixed(0)+'</b>'+ " <b>gems</b> will be  <b>added</b> for each <b>correct</b> response and " +'<b>'+lowGain.toFixed(0) +'</b>'+ " <b>bomb</b> will be <b>removed</b> for each <b>incorrect</b> response");
+            $('#cHiH1A,#cHiH2A').html('<b>'+highGain.toFixed(0)+'</b>'+ " <b>gems</b> will be  <b>added</b> for each <b>correct</b> response and " +'<b>'+highGain.toFixed(0)+'</b>' + " <b>bombs</b> will be <b>removed</b> for each <b>incorrect</b> response");
+
+        
+        }
+        else 
+        {
+            var role = 'PROTECTOR';
+            var items = 'bombs';
+            var correctItem ='bombs';
+            var incorrectItem='bombs';
+            var question ='bombs will be removed for a correct response and how many bombs will be added for an incorrect response';
+
+
+          
+            $('#cLiL1A,#cLiL2A').html('<b>'+lowGain.toFixed(0)+'</b>'+ " <b>bomb</b> will be <b>removed</b> for each <b>correct</b> response and " +'<b>'+lowGain.toFixed(0) +'</b>'+ " bomb will be <b>added</b> for each <b>incorrect</b> response");
+            $('#cLiH1A,#cLiH2A').html('<b>'+lowGain.toFixed(0)+'</b>'+ " <b>bomb</b> will be <b>removed</b> for each <b>correct</b> response and " +'<b>'+highGain.toFixed(0)+'</b>' + " bombs will be <b>added</b> for each <b>incorrect</b> response");
+            $('#cHiL1A,#cHiL2A').html('<b>'+highGain.toFixed(0)+'</b>'+ " <b>bombs</b> will be <b>removed</b> for each <b>correct</b> response and " +'<b>'+lowGain.toFixed(0) +'</b>'+ " bomb will be <b>added</b> for each <b>incorrect</b> response");
+            $('#cHiH1A,#cHiH2A').html('<b>'+highGain.toFixed(0)+'</b>'+ " <b>bombs </b>will be <b>removed</b> for each <b>correct</b> response and " +'<b>'+highGain.toFixed(0) +'</b>'+ " bombs will be <b>added</b> for each <b>incorrect</b> response");
+
+          
+        }
+
+        $('#question1,#question2').html(question);
+        
+
+    var cuesquizList=[];
+    var cueSourceCode=[];
+    var attempts =3; // number of attempts allowed on the quiz after it will proceed through to the task
+
+        //shuffle the cues and store temp
+        var quizCues=_.shuffle(cues[mainBlockType])
+        for(var i = 0;i<quizCues.length;i++){
+            cuesquizList.push(quizCues[i][1])
+            cueSourceCode.push(quizCues[i][0])
+        }
+       
+
+            document.getElementById("cue1").src = cueSourceCode[0]
+            document.getElementById("cue2").src = cueSourceCode[1]
+    
+
+    $("body").unbind("keydown").focus().keydown(continue_handler);
+    
+
+    function submit_onclick() {
+
+        var radios = document.getElementsByClassName("answer");
+        var answers = 0;
+
+        for (var i = 0, len = radios.length; i < len; i++) {
+            if (radios[i].checked) {
+                answers ++;
+            }
+        }
+
+        if (answers == 2) {     // if number fo answers eqauls number of questions
+            check_answers()
+        } else {
+            alert('You did not answer all the questions. Please go back and answer any questions you missed.');
+        }
+    }
+
+    function check_answers() {
+       
+        //determine the correct answers for the quiz
+        if(cuesquizList[0]=='Gain1_Pun1'||cuesquizList[0]=='Loss1_Pun1' ){correct1='cLiL1'};  
+        if(cuesquizList[1]=='Gain1_Pun1'||cuesquizList[1]=='Loss1_Pun1' ){correct2='cLiL2'};
+        
+        if(cuesquizList[0]=='Gain1_Pun2'||cuesquizList[0]=='Loss1_Pun2' ){correct1='cLiH1'};
+        if(cuesquizList[1]=='Gain1_Pun2'||cuesquizList[1]=='Loss1_Pun2' ){correct2='cLiH2'};
+
+        if(cuesquizList[0]=='Gain2_Pun1'||cuesquizList[0]=='Loss2_Pun1' ){correct1='cHiL1'};
+        if(cuesquizList[1]=='Gain2_Pun1'||cuesquizList[1]=='Loss2_Pun1' ){correct2='cHiL2'};
+
+        if(cuesquizList[0]=='Gain2_Pun2'||cuesquizList[0]=='Loss2_Pun2' ){correct1='cHiH1'};
+        if(cuesquizList[1]=='Gain2_Pun2'||cuesquizList[1]=='Loss2_Pun2' ){correct2='cHiH2'};
+
+
+          switch(mainBlockType){
+            case 'Gain_Pun1': 
+            
+                if (!(document.getElementById(correct1).checked && document.getElementById(correct2).checked )) {
+                    incorrectGain_Pun1 = incorrectGain_Pun1 + 1;
+                    if (incorrectGain_Pun1< attempts ){
+                        alert('You have made an error, please check your answers.');
+                    }else{
+                        var src = document.getElementById("buttons");
+                        var submitButton = document.getElementById("submitButton");
+                        //var instructButton = document.getElementById("instructButton");
+                        var nextButton = document.createElement("button");
+                        nextButton.textContent = 'Press to continue.';
+                        nextButton.setAttribute("id", "next");
+                        nextButton.setAttribute("value", "submit");
+                        nextButton.setAttribute("class", "btn btn-success btn-lg center-block continue");        
+                        src.appendChild(nextButton);
+                        src.removeChild(submitButton);
+                    }
+                    
+
+                } else {
+                    var src = document.getElementById("buttons");
+                    var submitButton = document.getElementById("submitButton");
+                    //var instructButton = document.getElementById("instructButton");
+                    var nextButton = document.createElement("button");
+                    nextButton.textContent = 'Correct! Press to continue.';
+                    nextButton.setAttribute("id", "next");
+                    nextButton.setAttribute("value", "submit");
+                    nextButton.setAttribute("class", "btn btn-success btn-lg center-block continue");        
+                    src.appendChild(nextButton);
+                    src.removeChild(submitButton);
+                };
+
+                break;
+            case 'Gain_Pun2': 
+                if (!(document.getElementById(correct1).checked && document.getElementById(correct2).checked )) {
+                   
+                    incorrectGain_Pun2 = incorrectGain_Pun2+ 1;
+                    if (incorrectGain_Pun2<attempts){ //works
+                        alert('You have made an error, please check your answers.');
+                    }else{
+                        var src = document.getElementById("buttons");
+                        var submitButton = document.getElementById("submitButton");
+                        //var instructButton = document.getElementById("instructButton");
+                        var nextButton = document.createElement("button");
+                        nextButton.textContent = 'Press to continue.';
+                        nextButton.setAttribute("id", "next");
+                        nextButton.setAttribute("value", "submit");
+                        nextButton.setAttribute("class", "btn btn-success btn-lg center-block continue");        
+                        src.appendChild(nextButton);
+                        src.removeChild(submitButton);
+                    }
+                } else {
+                    var src = document.getElementById("buttons");
+                    var submitButton = document.getElementById("submitButton");
+                   // var instructButton = document.getElementById("instructButton");
+                    var nextButton = document.createElement("button");
+                    nextButton.textContent = 'Correct! Press to continue.';
+                    nextButton.setAttribute("id", "next");
+                    nextButton.setAttribute("value", "submit");
+                    nextButton.setAttribute("class", "btn btn-success btn-lg center-block continue");        
+                    src.appendChild(nextButton);
+                    src.removeChild(submitButton);
+                    //src.removeChild(instructButton);
+                };
+
+                break;
+            case 'Gain1_Pun': 
+            if (!(document.getElementById(correct1).checked && document.getElementById(correct2).checked )) {
+                
+                    incorrectGain1_Pun = incorrectGain1_Pun+ 1;
+                    if (incorrectGain1_Pun<attempts){ // works
+                        alert('You have made an error, please check your answers.');
+                    }else{
+                        var src = document.getElementById("buttons");
+                        var submitButton = document.getElementById("submitButton");
+                        //var instructButton = document.getElementById("instructButton");
+                        var nextButton = document.createElement("button");
+                        nextButton.textContent = 'Press to continue.';
+                        nextButton.setAttribute("id", "next");
+                        nextButton.setAttribute("value", "submit");
+                        nextButton.setAttribute("class", "btn btn-success btn-lg center-block continue");        
+                        src.appendChild(nextButton);
+                        src.removeChild(submitButton);
+                    }    
+                } else {
+                    var src = document.getElementById("buttons");
+                    var submitButton = document.getElementById("submitButton");
+                    //var instructButton = document.getElementById("instructButton");
+                    var nextButton = document.createElement("button");
+                    nextButton.textContent = 'Correct! Press to continue.';
+                    nextButton.setAttribute("id", "next");
+                    nextButton.setAttribute("value", "submit");
+                    nextButton.setAttribute("class", "btn btn-success btn-lg center-block continue");        
+                    src.appendChild(nextButton);
+                    src.removeChild(submitButton);
+                    //src.removeChild(instructButton);
+                };
+                break;
+            case 'Gain2_Pun': 
+                if (!(document.getElementById(correct1).checked && document.getElementById(correct2).checked )) {
+                    
+                    incorrectGain2_Pun = incorrectGain2_Pun+ 1;
+                    if (incorrectGain2_Pun<attempts){
+                        alert('You have made an error, please check your answers.');
+                    }else{
+                        var src = document.getElementById("buttons");
+                        var submitButton = document.getElementById("submitButton");
+                        //var instructButton = document.getElementById("instructButton");
+                        var nextButton = document.createElement("button");
+                        nextButton.textContent = 'Press to continue.';
+                        nextButton.setAttribute("id", "next");
+                        nextButton.setAttribute("value", "submit");
+                        nextButton.setAttribute("class", "btn btn-success btn-lg center-block continue");        
+                        src.appendChild(nextButton);
+                        src.removeChild(submitButton);
+                    }        
+                } else {
+                    var src = document.getElementById("buttons");
+                    var submitButton = document.getElementById("submitButton");
+                    //var instructButton = document.getElementById("instructButton");
+                    var nextButton = document.createElement("button");
+                    nextButton.textContent = 'Correct! Press to continue.';
+                    nextButton.setAttribute("id", "next");
+                    nextButton.setAttribute("value", "submit");
+                    nextButton.setAttribute("class", "btn btn-success btn-lg center-block continue");        
+                    src.appendChild(nextButton);
+                    src.removeChild(submitButton);
+                    //src.removeChild(instructButton);
+                };
+                break;
+            case 'Loss_Pun1': 
+                if (!(document.getElementById(correct1).checked && document.getElementById(correct2).checked )) {
+                    
+                    incorrectLoss_Pun1 = incorrectLoss_Pun1+ 1;
+                    if (incorrectLoss_Pun1<attempts){
+                        alert('You have made an error, please check your answers.');
+                    }else{
+                        var src = document.getElementById("buttons");
+                        var submitButton = document.getElementById("submitButton");
+                        //var instructButton = document.getElementById("instructButton");
+                        var nextButton = document.createElement("button");
+                        nextButton.textContent = 'Press to continue.';
+                        nextButton.setAttribute("id", "next");
+                        nextButton.setAttribute("value", "submit");
+                        nextButton.setAttribute("class", "btn btn-success btn-lg center-block continue");        
+                        src.appendChild(nextButton);
+                        src.removeChild(submitButton);
+                    }
+                } else {
+                    var src = document.getElementById("buttons");
+                    var submitButton = document.getElementById("submitButton");
+                    //var instructButton = document.getElementById("instructButton");
+                    var nextButton = document.createElement("button");
+                    nextButton.textContent = 'Correct! Press to continue.';
+                    nextButton.setAttribute("id", "next");
+                    nextButton.setAttribute("value", "submit");
+                    nextButton.setAttribute("class", "btn btn-success btn-lg center-block continue");        
+                    src.appendChild(nextButton);
+                    src.removeChild(submitButton);
+                    //src.removeChild(instructButton);
+                };
+                break;
+            case 'Loss_Pun2': 
+            if (!(document.getElementById(correct1).checked && document.getElementById(correct2).checked )) {
+                    incorrectLoss_Pun2 = incorrectLoss_Pun2+ 1;
+                    if (incorrectLoss_Pun2<attempts){
+                        alert('You have made an error, please check your answers.');
+                    }else{
+                        var src = document.getElementById("buttons");
+                        var submitButton = document.getElementById("submitButton");
+                        //var instructButton = document.getElementById("instructButton");
+                        var nextButton = document.createElement("button");
+                        nextButton.textContent = 'Press to continue.';
+                        nextButton.setAttribute("id", "next");
+                        nextButton.setAttribute("value", "submit");
+                        nextButton.setAttribute("class", "btn btn-success btn-lg center-block continue");        
+                        src.appendChild(nextButton);
+                        src.removeChild(submitButton);
+                    } 
+                } else {
+                    var src = document.getElementById("buttons");
+                    var submitButton = document.getElementById("submitButton");
+                    //var instructButton = document.getElementById("instructButton");
+                    var nextButton = document.createElement("button");
+                    nextButton.textContent = 'Correct! Press to continue.';
+                    nextButton.setAttribute("id", "next");
+                    nextButton.setAttribute("value", "submit");
+                    nextButton.setAttribute("class", "btn btn-success btn-lg center-block continue");        
+                    src.appendChild(nextButton);
+                    src.removeChild(submitButton);
+                   // src.removeChild(instructButton);
+                };
+
+                break;
+            case 'Loss1_Pun': 
+                if (!(document.getElementById(correct1).checked && document.getElementById(correct2).checked )) {
+                    incorrectLoss1_Pun = incorrectLoss1_Pun+ 1;
+                    if (incorrectLoss1_Pun<attempts){
+                        alert('You have made an error, please check your answers.');
+                    }else{
+                        var src = document.getElementById("buttons");
+                        var submitButton = document.getElementById("submitButton");
+                        //var instructButton = document.getElementById("instructButton");
+                        var nextButton = document.createElement("button");
+                        nextButton.textContent = 'Press to continue.';
+                        nextButton.setAttribute("id", "next");
+                        nextButton.setAttribute("value", "submit");
+                        nextButton.setAttribute("class", "btn btn-success btn-lg center-block continue");        
+                        src.appendChild(nextButton);
+                        src.removeChild(submitButton);
+                    }  
+                } else {
+                    var src = document.getElementById("buttons");
+                    var submitButton = document.getElementById("submitButton");
+                   // var instructButton = document.getElementById("instructButton");
+                    var nextButton = document.createElement("button");
+                    nextButton.textContent = 'Correct! Press to continue.';
+                    nextButton.setAttribute("id", "next");
+                    nextButton.setAttribute("value", "submit");
+                    nextButton.setAttribute("class", "btn btn-success btn-lg center-block continue");        
+                    src.appendChild(nextButton);
+                    src.removeChild(submitButton);
+                   // src.removeChild(instructButton);
+                };
+
+                break;
+            case 'Loss2_Pun': 
+            if (!(document.getElementById(correct1).checked && document.getElementById(correct2).checked )) {
+                    incorrectLoss2_Pun = incorrectLoss2_Pun+ 1;
+                    if (incorrectLoss2_Pun<attempts){
+                        alert('You have made an error, please check your answers.');
+                    }else{
+                        var src = document.getElementById("buttons");
+                        var submitButton = document.getElementById("submitButton");
+                        //var instructButton = document.getElementById("instructButton");
+                        var nextButton = document.createElement("button");
+                        nextButton.textContent = 'Press to continue.';
+                        nextButton.setAttribute("id", "next");
+                        nextButton.setAttribute("value", "submit");
+                        nextButton.setAttribute("class", "btn btn-success btn-lg center-block continue");        
+                        src.appendChild(nextButton);
+                        src.removeChild(submitButton);
+                    }      
+                } else {
+                    var src = document.getElementById("buttons");
+                    var submitButton = document.getElementById("submitButton");
+                    //var instructButton = document.getElementById("instructButton");
+                    var nextButton = document.createElement("button");
+                    nextButton.textContent = 'Correct! Press to continue.';
+                    nextButton.setAttribute("id", "next");
+                    nextButton.setAttribute("value", "submit");
+                    nextButton.setAttribute("class", "btn btn-success btn-lg center-block continue");        
+                    src.appendChild(nextButton);
+                    src.removeChild(submitButton);
+                    //src.removeChild(instructButton);
+                };
+                break;
+              
+          }
+
+        
+      
+      
+
+    }
+</script>

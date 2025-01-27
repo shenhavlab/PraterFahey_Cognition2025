@@ -1,0 +1,126 @@
+<div id="container-questionnaire">
+    <h1>Task Complete</h1>
+
+    <hr />
+
+    <p>You are finished! Thank you for your contributions to science. You will be eligible for full payment once you answer the following questions. However, none of the answers you give below will effect your payment.</p>
+
+    <div class="instructions well">
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(this).scrollTop(0);
+            });
+        </script>
+        <table style="width:100%; table-layout: fixed">
+        <tr>
+        <td align="center"><img src='{{ server_location }} static/images/cues/game_prc/Rew1_Pen2.png' height="200"></td>
+        </tr>
+        </table>        
+        <p>
+            When you performed a set starting with the above image:
+        </p>
+        <form id="postquiz" action="debrief" method="post">
+            <!-- beginning of a question -->
+            <div class="question">
+                <div>
+                    On a scale of 1 to 7, how much did you LIKE this set?<br>
+                </div>
+
+                <div class="radioGroupBelow">
+                <table style="width:100%; table-layout: fixed">
+                <tr>
+                    <td align="center"><label>1<br>Not at all<input type="radio" name="Pun1_L" value="1"></label></td>
+                    <td align="center"><label>2<input type="radio" name="Pun1_L" value="2"></label></td>
+                    <td align="center"><label>3<input type="radio" name="Pun1_L" value="3"></label></td>
+                    <td align="center"><label>4<br>Neutral<input type="radio" name="Pun1_L" value="4"></label></td>
+                    <td align="center"><label>5<input type="radio" name="Pun1_L" value="5"></label></td>
+                    <td align="center"><label>6<input type="radio" name="Pun1_L" value="6"></label></td>
+                    <td align="center"><label>7<br>Very much<input type="radio" name="Pun1_L" value="7"></label></td> 
+                </tr>
+                </table>
+                <div>                
+            </div>
+            <!-- end of a question -->
+            <!-- beginning of a question -->
+            <div class="question">
+                <div>
+                    On a scale of 1 to 7, how MOTIVATED were you?<br>
+                </div>
+
+                <div class="radioGroupBelow">
+                <table style="width:100%; table-layout: fixed">
+                <tr>
+                    <td align="center"><label>1<br>Not at all<input type="radio" name="Pun1_M" value="1"></label></td>
+                    <td align="center"><label>2<input type="radio" name="Pun1_M" value="2"></label></td>
+                    <td align="center"><label>3<input type="radio" name="Pun1_M" value="3"></label></td>
+                    <td align="center"><label>4<br>Neutral<input type="radio" name="Pun1_M" value="4"></label></td>
+                    <td align="center"><label>5<input type="radio" name="Pun1_M" value="5"></label></td>
+                    <td align="center"><label>6<input type="radio" name="Pun1_M" value="6"></label></td>
+                    <td align="center"><label>7<br>Very much<input type="radio" name="Pun1_M" value="7"></label></td> 
+                </tr>
+                </table>
+                <div>
+            </div>
+            <!-- end of a question -->
+            <!-- beginning of a question -->
+            <div class="question">
+                <div>
+                    On a scale of 1 to 7, how DIFFICULT was the task?<br>
+                </div>
+
+                <div class="radioGroupBelow">
+                <table style="width:100%; table-layout: fixed">
+                <tr>
+                    <td align="center"><label>1<br>Not at all<input type="radio" name="Pun1_D" value="1"></label></td>
+                    <td align="center"><label>2<input type="radio" name="Pun1_D" value="2"></label></td>
+                    <td align="center"><label>3<input type="radio" name="Pun1_D" value="3"></label></td>
+                    <td align="center"><label>4<br>Neutral<input type="radio" name="Pun1_D" value="4"></label></td>
+                    <td align="center"><label>5<input type="radio" name="Pun1_D" value="5"></label></td>
+                    <td align="center"><label>6<input type="radio" name="Pun1_D" value="6"></label></td>
+                    <td align="center"><label>7<br>Very much<input type="radio" name="Pun1_D" value="7"></label></td>
+                </tr>
+                </table>
+                <div>
+            </div>
+            <!-- end of a question -->
+            <!-- beginning of a question -->
+            <div class="question">
+                <div>
+                    On a scale of 1 to 7, how much EFFORT did you exert?<br>
+                </div>
+
+                <div class="radioGroupBelow">
+                <table style="width:100%; table-layout: fixed">
+                <tr>
+                    <td align="center"><label>1<br>Not at all<input type="radio" name="Pun1_E" value="1"></label></td>
+                    <td align="center"><label>2<input type="radio" name="Pun1_E" value="2"></label></td>
+                    <td align="center"><label>3<input type="radio" name="Pun1_E" value="3"></label></td>
+                    <td align="center"><label>4<br>Neutral<input type="radio" name="Pun1_E" value="4"></label></td>
+                    <td align="center"><label>5<input type="radio" name="Pun1_E" value="5"></label></td>
+                    <td align="center"><label>6<input type="radio" name="Pun1_E" value="6"></label></td>
+                    <td align="center"><label>7<br>Very much<input type="radio" name="Pun1_E" value="7"></label></td>
+                </tr>
+                </table>
+                <div>
+            </div>
+            <!-- end of a question -->
+
+        </form>
+    </div>
+
+    <hr />
+
+    <div class="instructionsnav">
+        <div class="row">
+            <div class="col-xs-2">
+            </div>
+            <div class="col-xs-7">
+            </div>
+            <div class="col-xs-3">
+                <button type="button" id="next" value="next" class="btn btn-primary btn-lg continue">
+                    Continue <span class="glyphicon glyphicon-arrow-right"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

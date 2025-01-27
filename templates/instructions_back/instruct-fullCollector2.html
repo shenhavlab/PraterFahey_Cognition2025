@@ -1,0 +1,63 @@
+<script>
+    $("body").unbind("keydown").focus().keydown(continue_handler);
+</script>
+
+
+<div id="container-instructions">
+
+    <h1>Collector Instructions</h1>
+
+    <hr/>
+
+    <div class="instructions well">
+
+        <div class="row container-fluid">
+            <p>
+                <font size=4> Each time you make a mistake, you will incur a penalty (bombs that can each destroy one of the gems in your bank). 
+                <br><br>
+                On the <b>RIGHT</b> side of the bank, a symbol next to the <font style="color:red">RED X MARK </font>will show you <b> how many bombs will be added </b> to your bank for each <b>incorrect response</b>. 
+                <br><br>
+                On <b>LOW-PENALTY</b> turns, each <font style="color:red">incorrect response</font><b> adds <span id="lowPunish2"></span> bomb</b>.
+                <br><br>
+                
+                <img src='{{ server_location }} static/images/instructionImage/GainPen1.png' height="100"   >
+                
+                <br><br>
+                On <b>HIGH-PENALTY</b> turns, each <font style="color:red">incorrect response</font> <b> adds <span id="highPunish2"></span> bombs</b>.
+                <br><br>
+                
+                <img src='{{ server_location }} static/images/instructionImage/GainPen2.png' height="100" >
+                
+                <br><br>
+                At the end of each turn, you will see the number of gems added AND the number of bombs added on that turn.
+                <br><br>
+                
+                <img src='{{ server_location }} static/images/instructionImage/FeedbackCollector.png' height="100" >
+                
+                </font>
+            </p>
+        </div>
+</div>
+<script type="text/javascript">
+            $('#highPunish1,#highPunish2').html(highPun.toFixed(0));
+            $('#lowPunish1,#lowPunish2').html(lowPun.toFixed(0));
+            $("body").unbind("keydown").focus().keydown(continue_handler);
+</script>
+
+<hr />
+
+<div class="instructionsnav">
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+            <button type="button" id="next" value="next" class="btn btn-success btn-lg center-block continue">
+                Continue
+            </button>
+        </div>
+        <div class="col-xs-2">
+        </div>
+    </div>
+</div>
+
+</div>

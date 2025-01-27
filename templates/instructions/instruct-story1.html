@@ -1,0 +1,57 @@
+ <script>
+    $("body").unbind("keydown").focus().keydown(continue_handler);
+
+    if(protector)$('#initial').html('We are giving you $12 of initial bonus money. ');
+
+    if(protector & collector)
+    {
+        $('#games1').html('two games');
+        $('#games2').html('both games');
+        $('#action').html('gain or avoid loss from this bonus money');
+    }
+    else
+    {
+        $('#games1').html('a game');
+        $('#games2').html('the game');
+        if(collector)$('#action').html('gain bonus money');
+        if(protector)$('#action').html('avoid loss from bonus money');
+    }
+</script>
+
+
+<div id="container-instructions">
+
+    <h1>Welcome!</h1>
+
+    <hr/>
+
+    <div class="instructions well">
+
+        <div class="row container-fluid">
+            <p>
+                <font size=4>
+                In this section, you are going to play <span id='games1'></span>. <span id='initial'></span>In <span id='games2'></span> you will have the opportunity to <span id='action'></span>. 
+                <br /><br />
+                Before we get started with either game, we are going to walk you through the basic operations and rules of the games.
+                </font>
+            </p>
+        </div>
+</div>
+
+<hr />
+
+<div class="instructionsnav">
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+            <button type="button" id="next" value="next" class="btn btn-success btn-lg center-block continue">
+                Continue
+            </button>
+        </div>
+        <div class="col-xs-2">
+        </div>
+    </div>
+</div>
+
+</div>

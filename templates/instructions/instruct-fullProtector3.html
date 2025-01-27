@@ -1,0 +1,53 @@
+<script>
+    $("body").unbind("keydown").focus().keydown(continue_handler);
+</script>
+
+
+<div id="container-instructions">
+
+    <h1>Protector Game: Instructions</h1>
+
+    <hr/>
+
+    <div class="instructions well">
+
+        <div class="row container-fluid">
+            <p>
+                <font size=4> 
+                    The number of bombs you remove from your bank for <b><font style="color:green">correct responses</font></b> can either be LOW-VALUE or HIGH-VALUE.
+                    <br><br>
+                    On <b>LOW-VALUE</b> turns, the left side of the image will look like this. On these turns, each <b><font style="color:green">correct response</font></b><b> removes <span id="lowVal"></span> bomb</b>, which saves <span id="lowVal"></span> gem.
+                    <br><br>
+                    <img src='{{ server_location }} static/images/instructionImage/Loss1.png' height="100">
+
+                    <br><br><br><br>
+                    On <b>HIGH-VALUE</b> turns, the left side of the image will look like this. On these turns, each <b><font style="color:green">correct response</font></b><b> removes <span id="highVal"></span> bombs</b>, which saves <span id="highVal"></span> gems.
+                    <br><br>
+                    <img src='{{ server_location }} static/images/instructionImage/Loss2.png' height="100">
+                </font>
+            </p>
+        </div>
+</div>
+ <script type="text/javascript">
+            $('#lowVal').html(lowLoss.toFixed(0));
+            $('#highVal').html(highLoss.toFixed(0));
+            $("body").unbind("keydown").focus().keydown(continue_handler);
+</script>
+
+<hr />
+
+<div class="instructionsnav">
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+            <button type="button" id="next" value="next" class="btn btn-success btn-lg center-block continue">
+                Continue
+            </button>
+        </div>
+        <div class="col-xs-2">
+        </div>
+    </div>
+</div>
+
+</div>

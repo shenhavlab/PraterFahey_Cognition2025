@@ -1,0 +1,49 @@
+ <script>
+    $("#nBlock").html(numBlock.toFixed(0));
+    if(selectPerBlock>1)
+        $("#nSample").html(selectPerBlock.toFixed(0) + ' turns');
+    else
+        $("#nSample").html(selectPerBlock.toFixed(0) + ' turn');
+    $("body").unbind("keydown").focus().keydown(continue_handler);
+</script>
+
+
+<div id="container-instructions">
+
+    <h1>Let's COLLECT and PROTECT gems!</h1>
+
+    <hr/>
+
+    <div class="instructions well">
+
+        <div class="row container-fluid">
+            <p>
+                <font size=5>You are about to start the real game.</font>
+                <font size=4>
+                    There will be <span id='nBlock'></span> rounds of this game. In each round, you will perform on several turns of the same type.
+                    <br><br>
+                    <b>NOTICE:</b> At the end of each round, <span id='nSample'></span> will be randomly selected. The gems and bombs on the selected turns will be added to your bank.
+                    <br><br>
+                    <b>Because you don't know which turns will be chosen, you should treat each turn as though it will be chosen.</b>
+                </font>
+            </p>
+        </div>
+</div>
+
+<hr />
+
+<div class="instructionsnav">
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+            <button type="button" id="next" value="next" class="btn btn-success btn-lg center-block continue">
+                Continue
+            </button>
+        </div>
+        <div class="col-xs-2">
+        </div>
+    </div>
+</div>
+
+</div>

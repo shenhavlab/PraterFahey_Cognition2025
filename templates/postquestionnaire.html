@@ -1,0 +1,255 @@
+<div id="container-questionnaire">
+    <h1>Task Complete</h1>
+
+    <hr />
+
+    <p>You are finished! Thank you for your contributions to science. You will be eligible for full payment once you answer the following questions. However, none of the answers you give below will effect your payment.</p>
+
+    <div class="instructions well">
+<!--         <script type="text/javascript">
+            $("body").unbind("keydown",continue_handler);
+        </script> -->
+        <script type="text/javascript">
+            $("body").unbind("keydown",continue_handler);
+            $(document).ready(function(){
+                $(this).scrollTop(0);
+            });
+        </script>
+
+        <form id="postquiz" action="debrief" method="post">
+            <!-- beginning of a question -->
+            <div class="question">
+                <div>
+                   Did you use any strategy when determining how to respond in different trials? Nothing you say will effect your payment for completing this hit.<br><br>
+                    <textarea rows="4" cols="100" id="comments" name="comments" style="font-size: 12pt"></textarea>
+                </div> <br><hr style="height:1px; border:none; color:#696969; background-color:#696969;">
+            </div>
+            <!-- end of a question -->
+
+
+            <!-- beginning of a question -->
+            <div class="question">
+                <div>
+                    How old are you? Please enter your age in years.<br>
+                    <textarea rows="1" cols="25" id="age" name="age" style="font-size: 12pt"></textarea>
+                </div> <br><hr style="height:1px; border:none; color:#696969; background-color:#696969;">
+            </div>
+            <!-- end of a question -->
+
+
+            <!-- beginning of a question -->
+            <div class="question">
+                <div>
+                    What gender do you identify as?<br>
+                </div>
+                <div>
+                    <select id="gender" name="gender">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="NoAnswer">Prefer not to answer</option>
+                    </select> <br><br><hr style="height:1px; border:none; color:#696969; background-color:#696969;">
+                </div>
+            </div>
+            <!-- end of a question -->
+
+
+            <!-- beginning of a question -->
+            <div class="question">
+                <div>
+                    Are you a native English speaker?<br>
+                </div>
+                <div>
+                    <select id="english" name="english">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="Yes">Yes</option>
+                        <option value="Fluent">No, but I am fluent</option>
+                        <option value="Fluent">No</option>
+                        <option value="NoAnswer">Prefer not to answer</option>
+                    </select> <br><br><hr style="height:1px; border:none; color:#696969; background-color:#696969;">
+                </div>
+            </div>
+            <!-- end of a question -->
+
+
+            <!-- beginning of a question -->
+            <div class="question">
+                <div>
+                    Do you have normal color vision?<br>
+                </div>
+                <div>
+                    <select id="normalVision" name="normalVision">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="Yes">Yes</option>
+                        <option value="Fluent">No, I have red-green color blindness</option>
+                        <option value="Fluent">No, I have blue-yellow color blindness</option>
+                        <option value="NoAnswer">Prefer not to answer</option>
+                    </select> <br><br><hr style="height:1px; border:none; color:#696969; background-color:#696969;">
+                </div>
+            </div>
+            <!-- end of a question -->
+
+
+			<!-- beginning of a question -->
+            <div class="question">
+                <div>
+                    Relative to the average American household, what was the income level of your <i>immediate family during your childhood</i>?<br>
+                </div>
+                <div>
+                    <select id="childhoodIncome" name="childhoodIncome">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">1 Low</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 Average</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10 High</option>
+                        <option value="Unsure">Don't know</option>
+                        <option value="NoAnswer">Prefer not to answer</option>
+                    </select> <br><br><hr style="height:1px; border:none; color:#696969; background-color:#696969;">
+                </div>
+            </div>
+            <!-- end of a question -->
+
+
+            <!-- beginning of a question -->
+            <div class="question">
+                <div>
+                    Relative to the average American household, what is the income level of your <i>current household</i>?<br>
+                </div>
+                <div>
+                    <select id="currentIncome" name="currentIncome">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">1 Low</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 Average</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10 High</option>
+                        <option value="Unsure">Don't know</option>
+                        <option value="NoAnswer">Prefer not to answer</option>
+                    </select> <br><br><hr style="height:1px; border:none; color:#696969; background-color:#696969;">
+                </div>
+            </div>
+            <!-- end of a question -->
+
+
+            <!-- beginning of a question -->
+            <div class="question">
+                <div>
+                    How many years of education have you completed?<br>
+                </div>
+                <div>
+                    <select id="yourEducation" name="yourEducation">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="<12">Fewer than 12</option>
+                        <option value="12">12 (High School)</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16 (College)</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value=">20">More than 20</option>
+                        <option value="NoAnswer">Prefer not to answer</option>
+                    </select> <br><br><hr style="height:1px; border:none; color:#696969; background-color:#696969;">
+                </div>
+            </div>
+            <!-- end of a question -->
+
+
+            <!-- beginning of a question -->
+            <div class="question">
+                <div>
+                    How many years of education did your mother complete?<br>
+                </div>
+                <div>
+                    <select id="mothersEducation" name="mothersEducation">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="<12">Fewer than 12</option>
+                        <option value="12">12 (High School)</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16 (College)</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value=">20">More than 20</option>
+                        <option value="Unsure">Don't know</option>
+                        <option value="NoAnswer">Prefer not to answer</option>
+                    </select> <br><br><hr style="height:1px; border:none; color:#696969; background-color:#696969;">
+                </div>
+            </div>
+            <!-- end of a question -->
+
+
+            <!-- beginning of a question -->
+            <div class="question">
+                <div>
+                    How many years of education did your father complete?<br>
+                </div>
+                <div>
+                    <select id="fathersEducation" name="fathersEducation">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="<12">Fewer than 12</option>
+                        <option value="12">12 (High School)</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16 (College)</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value=">20">More than 20</option>
+                        <option value="Unsure">Don't know</option>
+                        <option value="NoAnswer">Prefer not to answer</option>
+                    </select> <br><br><hr style="height:1px; border:none; color:#696969; background-color:#696969;">
+                </div>
+            </div>
+            <!-- end of a question -->
+
+
+            <!-- beginning of a question -->
+            <div class="question">
+                <div>
+                    Is there anyting else you would like to tell us about your participation? Nothing you say will affect your payment for completing this hit.<br><br>
+                    <textarea rows="4" cols="100" id="comments" name="comments" style="font-size: 12pt"></textarea>
+                </div>
+            </div>
+            <!-- end of a question -->
+
+
+        </form>
+    </div>
+
+    <hr />
+
+    <div class="instructionsnav">
+        <div class="row">
+            <div class="col-xs-2">
+            </div>
+            <div class="col-xs-7">
+            </div>
+            <div class="col-xs-3">
+                <button type="button" id="next" value="next" class="btn btn-primary btn-lg continue">
+                    Continue <span class="glyphicon glyphicon-arrow-right"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,50 @@
+<div id="container-instructions">
+
+    <h1>Instructions-Perform on turns</h1>
+
+    <hr />
+
+    <div class="instructions well">
+
+        <p id="adjustedText">
+            <font size=4>
+            
+            <script>
+                $(document).ready(function(){
+                    var text = "Both games will be broken up into turns, and each turn will be about " + "8" + " seconds long."
+                    
+                    $("#adjustedText").prepend(text)
+                }); 
+            </script>
+             
+            <br/><br/>
+            Each turn will start with one of the colored words you saw earlier. Once you respond to the first word, a second word will appear. This will keep happening until the time runs out for that turn.
+            <br/><br/>
+            Remember, you should continue to respond only to the <b>INK COLOR</b> of each word. You should <b>NOT</b> respond based on the content of the word.
+            <br/><br/>
+            </font>
+        </p>
+
+        <script type="text/javascript">
+            $("body").unbind("keydown").focus().keydown(continue_handler);
+        </script>
+
+    </div>
+
+<hr />
+
+<div class="instructionsnav">
+    <div class="row">
+        <div class="col-xs-2">
+         </div>
+         <div class="col-xs-8">
+            <button type="button" id="next" value="next" class="btn btn-primary btn-lg center-block continue">
+                Press space to continue <span class="glyphicon glyphicon-arrow-right"></span>
+            </button>
+         </div>
+         <div class="col-xs-2">
+        </div>
+    </div>
+</div>
+
+</div>

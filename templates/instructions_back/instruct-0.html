@@ -1,0 +1,57 @@
+<div id="container-instructions">
+
+	<h1>Questionnaires</h1>
+
+	<hr/>
+
+	<div class="instructions well">
+
+		<iframe src='https://brown.co1.qualtrics.com/jfe/form/SV_7TBbYX68VGmdzGR' height=800px width=100%></iframe>
+
+        <script type="text/javascript">
+
+        $('#next').hide();
+
+		// add the all-important message event listener
+		window.addEventListener('message', function(event){
+
+			
+
+		    // normally there would be a security check here on event.origin (see the MDN link above), but meh.
+		    if (event.data) {
+		        if (typeof event.data === 'string') {
+		            q_message_array = event.data.split('|');
+		            if (q_message_array[0] == 'QualtricsEOS') {
+		                psiTurk.recordTrialData({'phase':'postquestionnaire', 'status':'back_from_qualtrics'});
+		                psiTurk.recordUnstructuredData('qualtrics_response_id', q_message_array[2]);
+		                console.log(q_message_array);
+		            }
+		        }
+		    }
+		    // display the 'continue' button, which takes them to the next page
+		    $('#next').show();
+		})
+
+
+        </script>
+
+    </div>
+
+    <hr />
+
+
+    <div class="instructionsnav">
+        <div class="row">
+            <div class="col-xs-2">
+            </div>
+            <div class="col-xs-8">
+                <button type="button" id="next" value="next" class="btn btn-primary btn-lg center-block continue" visibility = "hidden">
+                    Press space to continue <span class="glyphicon glyphicon-arrow-right"></span>
+                </button>
+            </div>
+            <div class="col-xs-2">
+            </div>
+        </div>
+    </div>
+
+</div>

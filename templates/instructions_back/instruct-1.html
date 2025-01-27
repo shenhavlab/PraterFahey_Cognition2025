@@ -1,0 +1,70 @@
+<div id="container-instructions">
+
+	<h1>Instructions-Basic Operation</h1>
+
+	<hr />
+
+	<div class="instructions well">
+
+        <p>
+            <font size=4>
+            In the game, the basic operation is to identify the INK COLOR on the screen and press keys corresponding to the INK COLOR you see.
+            <br><br>
+            In the first practice you will see a row of Xs appear on the screen in different ink colors. You should press the key that corresponds to the color of the Xs.
+            <br><br>
+            After each response, you will be told whether you were correct or incorrect.
+            <br><br>
+            Please do your best to make sure you learn which key corresponds to which ink color.
+            <br><br>
+            </font>
+
+            <div class="row">
+                <img style='float: left; padding-left: 20px;' class='' src='{{ server_location }}/static/images/ColorMappingVisual.png' height="300">
+
+                <p style='padding-left: 440px;'>
+                    To respond, please use your... 
+
+                    <br />
+                    Left middle finger to respond <strong>D</strong> for <strong id="color1"></strong><br />
+
+                    Left index finger to respond <strong>F</strong> for <strong id="color2"></strong><br />
+
+                    Right index finger to respond <strong>J</strong> for <strong id="color3"></strong><br />
+
+                    Right middle finger to respond <strong>K</strong> for <strong id="color4"></strong><br />
+                    <script type="text/javascript">
+                        var responseColors = ["red", "yellow", "green", "blue"];
+                        document.getElementById("color1").innerHTML = responseColors[0];
+                        document.getElementById("color2").innerHTML = responseColors[1];
+                        document.getElementById("color3").innerHTML = responseColors[2];
+                        document.getElementById("color4").innerHTML = responseColors[3];
+                    </script><br />
+                </p>
+            </div>
+
+        </p>
+
+        <script type="text/javascript">
+            $("body").unbind("keydown").focus().keydown(continue_handler);
+        </script>
+
+    </div>
+
+    <hr />
+
+
+    <div class="instructionsnav">
+        <div class="row">
+            <div class="col-xs-2">
+            </div>
+            <div class="col-xs-8">
+                <button type="button" id="next" value="next" class="btn btn-primary btn-lg center-block continue">
+                    Press space to continue <span class="glyphicon glyphicon-arrow-right"></span>
+                </button>
+            </div>
+            <div class="col-xs-2">
+            </div>
+        </div>
+    </div>
+
+</div>

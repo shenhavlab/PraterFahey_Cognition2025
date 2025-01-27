@@ -1,0 +1,65 @@
+<script>
+    $("body").unbind("keydown").focus().keydown(continue_handler);
+</script>
+
+
+<div id="container-instructions">
+
+    <h1>Protector Instructions</h1>
+
+    <hr/>
+
+    <div class="instructions well">
+
+        <div class="row container-fluid">
+            <p>
+                <font size=4> Welcome to the Protector Game!
+                <br><br>
+                As a reminder, at the very beginning, you had 1200 gems in your bank, which is equivalent to $12 of bonus payment <b>(1 gem = 1 cent)</b>.
+                <br><br>
+                On each turn, <b>300 bombs will appear in your bank</b>, each of which has the power to destroy one of your gems.
+                <br><br>
+                
+                <img src='{{ server_location }} static/images/instructionImage/BankLoss.png' height="100"   >
+                
+                <br><br>
+                Any bombs that remain at the end of that turn will destroy the equivalent number of gems
+                <br><br>
+                Each time you give a <b>correct response</b>, you will <b>remove</b> some number of bombs. The number of bombs removed for each correct response will differ across turns.
+                <br><br>
+                On the <b>LEFT</b> side of the bank, a symbol next to the <font style="color:green">GREEN CHECK MARK </font> will show you <b> how many bombs you can remove</b> to your bank for each <b>correct response</b> (shown in gray). 
+                <br><br>
+                On <b>LOW-VALUE</b> turns, each <font style="color:green">correct response</font><b> removes <span id="lowVal"></span> bomb</b>.
+                <br><br>
+                <img src='{{ server_location }} static/images/instructionImage/Loss1.png' height="100"   >
+                <br><br>
+                On <b>HIGH-Value</b> turns, each <font style="color:green">correct response</font> <b> removes <span id="highVal"></span> bombs</b>.
+                <br><br>
+                <img src='{{ server_location }} static/images/instructionImage/Loss2.png' height="100" >
+                </font>
+            </p>
+        </div>
+</div>
+ <script type="text/javascript">
+            $('#lowVal').html(lowLoss.toFixed(0));
+            $('#highVal').html(highLoss.toFixed(0));
+            $("body").unbind("keydown").focus().keydown(continue_handler);
+</script>
+
+<hr />
+
+<div class="instructionsnav">
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+            <button type="button" id="next" value="next" class="btn btn-success btn-lg center-block continue">
+                Continue
+            </button>
+        </div>
+        <div class="col-xs-2">
+        </div>
+    </div>
+</div>
+
+</div>

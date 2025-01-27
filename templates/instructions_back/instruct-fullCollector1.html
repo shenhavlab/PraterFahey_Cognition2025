@@ -1,0 +1,61 @@
+<script>
+    $("body").unbind("keydown").focus().keydown(continue_handler);
+    if(protector) $("#reminder").html("As a reminder, at the very beginning, you had 1200 gems in your bank, which is equivalent to $12 of bonus payment <b>(1 gem = 1 cent)</b>.<br><br>");
+</script>
+
+
+<div id="container-instructions">
+
+    <h1>Collector Instructions</h1>
+
+    <hr/>
+
+    <div class="instructions well">
+
+        <div class="row container-fluid">
+            <p>
+                <font size=4> Welcome to the Collector Game!
+                <br><br>
+                <span id='reminder'></span>
+                Each time you give a <b>correct response</b>, you will <b>collect</b> some number of gems. The number of gems added for each correct response will differ across turns.
+                <br><br>
+                On the <b>LEFT</b> side of the bank, a symbol next to the <font style="color:green">GREEN CHECK MARK </font>will show you<b> how many gems you can add</b> to your bank for each <b>correct response</b>. 
+                <br><br>
+                On <b>LOW-VALUE</b> turns, each <font style="color:green">correct response</font><b> adds <span id="lowReward"></span> gem</b>.
+                <br><br>
+                
+                <img src='{{ server_location }} static/images/instructionImage/Gain1.png' height="100"   >
+                
+                <br><br>
+                On <b>HIGH-Value</b> turns, each <font style="color:green">correct response</font> <b> adds <span id="highReward"></span> gems</b>.
+                <br><br>
+                
+                <img src='{{ server_location }} static/images/instructionImage/Gain2.png' height="100" >
+                
+                </font>
+            </p>
+        </div>
+</div>
+ <script type="text/javascript">
+            $('#lowReward').html(lowGain.toFixed(0));
+            $('#highReward').html(highGain.toFixed(0));
+            $("body").unbind("keydown").focus().keydown(continue_handler);
+</script>
+
+<hr />
+
+<div class="instructionsnav">
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+            <button type="button" id="next" value="next" class="btn btn-success btn-lg center-block continue">
+                Continue
+            </button>
+        </div>
+        <div class="col-xs-2">
+        </div>
+    </div>
+</div>
+
+</div>

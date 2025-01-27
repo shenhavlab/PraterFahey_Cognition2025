@@ -1,0 +1,52 @@
+ <script>
+    $("#nBlock").html(numBlock.toFixed(0));
+    if(selectPerBlock>1)
+        $("#selectPerBlock").html(selectPerBlock.toFixed(0) + ' turns');
+    else
+        $("#selectPerBlock").html(selectPerBlock.toFixed(0) + ' turn');
+    $("body").unbind("keydown").focus().keydown(continue_handler);
+</script>
+
+
+<div id="container-instructions">
+
+    <h1>Let's PROTECT gems!</h1>
+
+    <hr/>
+
+    <div class="instructions well">
+
+        <div class="row container-fluid">
+            <p>
+                <font size=5>You are about to start the real PROTECTOR game.</font>
+                <font size=4>
+                    <br><br>
+                    There will be <span id='nBlock'></span> rounds of the game. In each round, you will perform on several turns.
+                    <br><br>
+                    <b>NOTICE:</b> At the end of each round, <b>we will choose <span id='selectPerBlock'></span> from that round at random</b>. Any bombs remaining on that turn will be added to your gem bank.
+                    <br><br>
+                    <b>Because you don't know which turns will be chosen, you should treat each turn as though it will be chosen.</b>
+                    <br><br>
+                    As a reminder, after you finish both games, all of the bombs in your bank will detonate, destroying the equivalent number of gems (e.g., 500 bombs will destroy 500 gems). The remaining gems your gem bank will be converted to real money.
+                </font>
+            </p>
+        </div>
+</div>
+
+<hr />
+
+<div class="instructionsnav">
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+            <button type="button" id="next" value="next" class="btn btn-success btn-lg center-block continue">
+                Continue
+            </button>
+        </div>
+        <div class="col-xs-2">
+        </div>
+    </div>
+</div>
+
+</div>

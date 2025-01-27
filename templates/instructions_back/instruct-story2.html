@@ -1,0 +1,59 @@
+<script>
+    $("body").unbind("keydown").focus().keydown(continue_handler);
+    if(collector & protector) $("#nGamesByRole").html("You will play two games. In the games");
+    else $("#nGamesByRole").html("You will play a game. In the game");
+
+    if(protector & collector) $("#initialByRole").html("<b>When you start these games, you have 1200 gems in your gem bank, which is equivalent to $12 of bonus payment.</b><br><br>");
+    if(protector & !collector) $("#initialByRole").html("<b>When you start the game, you have 1200 gems in your gem bank, which is equivalent to $12 of bonus payment.</b><br><br>");
+</script>
+
+
+<div id="container-instructions">
+
+    <h1>Rules of the game</h1>
+
+    <hr/>
+
+    <div class="instructions well">
+
+        <div class="row container-fluid">
+            <p>
+                <font size=4> Now you understand the basics!
+                <br><br>
+                <span id='nGamesByRole'></span> you can earn reward in the form of gems, which are worth actual bonus money. These gems will be kept in a bank. <b>(1 gem = 1 cent)</b>.
+                <br><br>
+                <span id='initialByRole'></span>
+                <center>
+                <img src='{{ server_location }} static/images/instructionImage/Bank.png' height="100"   >
+                </center>
+                <br><br>
+                On the left side of the bank, a symbol next to the <font style="color:green">GREEN CHECK MARK </font>will show you what happens when you make a <font style="color:green">correct response</font>. 
+                <center>
+                <img src='{{ server_location }} static/images/instructionImage/BankCorrect.png' height="100"   >
+                </center>
+                On the right side of the bank, a symbol next to the <font style="color:red">RED X MARK </font>will show you what happens when you make an <font style="color:red">incorrect response</font>.
+                <center>
+                <img src='{{ server_location }} static/images/instructionImage/BankIncorrect.png' height="100" >
+                </center>
+                </font>
+            </p>
+        </div>
+</div>
+
+<hr />
+
+<div class="instructionsnav">
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+            <button type="button" id="next" value="next" class="btn btn-success btn-lg center-block continue">
+                Continue
+            </button>
+        </div>
+        <div class="col-xs-2">
+        </div>
+    </div>
+</div>
+
+</div>

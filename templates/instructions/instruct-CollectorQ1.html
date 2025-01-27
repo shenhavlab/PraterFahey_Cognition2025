@@ -1,0 +1,131 @@
+<div id="container-instructions">
+
+    <h1>Quiz - COLLECTOR</h1>
+
+    <hr />
+
+    <div class="instructions well">
+
+        <p>
+            Please answer the following questions based on the instructions you just read.
+        </p>
+
+        <ol type="1">
+
+            <img src='{{ server_location }} static/images/cues/RLP/Gain1_Pun1.png' height="100">
+            <img src='{{ server_location }} static/images/cues/RLP/Gain1_Pun2.png' height="100">
+            <li>When you see either of these two images above, how many gems will you collect with one correct response?
+                <form>
+                    <input type="radio" class="answer" name="q3answer" id="q3a1"> 0<br />
+                    <input type="radio" class="answer" name="q3answer" id="q3a2"> <span id='lowValQ3'></span><br />
+                    <input type="radio" class="answer" name="q3answer" id="q3a3"> <span id='highValQ3'></span><br />
+                </form>
+            </li>
+
+            <hr />
+            <img src='{{ server_location }} static/images/cues/RLP/Gain2_Pun1.png' height="100">
+            <img src='{{ server_location }} static/images/cues/RLP/Gain2_Pun2.png' height="100">
+            <li>When you see either of these two images above, how many gems will you collect with one correct response?
+                <form>
+                    <input type="radio" class="answer" name="q4answer" id="q4a1"> 0<br />
+                    <input type="radio" class="answer" name="q4answer" id="q4a2"> <span id='lowValQ4'></span><br />
+                    <input type="radio" class="answer" name="q4answer" id="q4a3"> <span id='highValQ4'></span><br />
+                </form>
+            </li>
+
+            <hr />
+            <img src='{{ server_location }} static/images/cues/RLP/Gain1_Pun1.png' height="100">
+            <img src='{{ server_location }} static/images/cues/RLP/Gain2_Pun1.png' height="100">
+            <li>When you see either of these two images above, how many bombs will appear with one incorrect response?
+                <form>
+                    <input type="radio" class="answer" name="q1answer" id="q1a1"> 0<br />
+                    <input type="radio" class="answer" name="q1answer" id="q1a2"><span id='lowPenQ1'></span><br />
+                    <input type="radio" class="answer" name="q1answer" id="q1a3"><span id='highPenQ1'></span><br/>
+                </form>
+            </li>
+            <hr />
+
+
+            <img src='{{ server_location }} static/images/cues/RLP/Gain1_Pun2.png' height="100">
+            <img src='{{ server_location }} static/images/cues/RLP/Gain2_Pun2.png' height="100">
+            <li>When you see either of these two images above, how many bombs will appear with one incorrect response?
+                <form>
+                    <input type="radio" class="answer" name="q2answer" id="q2a1"> 0<br />
+                    <input type="radio" class="answer" name="q2answer" id="q2a2"> <span id='lowPenQ2'></span><br />
+                    <input type="radio" class="answer" name="q2answer" id="q2a3"> <span id='highPenQ2'></span><br />
+                </form>
+            </li>
+
+        </ol>
+        <script type="text/javascript">
+            $('#lowValQ3,#lowValQ4').html(lowGain.toFixed(0));
+            $('#highValQ3,#highValQ4').html(highGain.toFixed(0));
+            $('#lowPenQ1,#lowPenQ2').html(lowPun.toFixed(0));
+            $('#highPenQ1,#highPenQ2').html(highPun.toFixed(0));
+            $("body").unbind("keydown").focus().keydown(continue_handler);
+        </script>
+    </div>
+
+<hr />
+
+<div class="instructionsnav">
+        <div class="row" id="buttons">
+            <button type="button" id="instructButton" class="btn btn-primary btn-lg" onclick="return instruct_onclick()">
+                    Return to Instructions
+            </button>
+            <button type="button" id="submitButton" class="btn btn-primary btn-lg pull-right" onclick="return submit_onclick()">
+                    Submit Answer
+            </button>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    $("body").unbind("keydown").focus().keydown(continue_handler);
+    function instruct_onclick() {
+
+        returnToInstructCallback();
+
+    }
+
+    function submit_onclick() {
+
+        var radios = document.getElementsByClassName("answer");
+        var answers = 0;
+
+        for (var i = 0, len = radios.length; i < len; i++) {
+            if (radios[i].checked) {
+                answers ++;
+            }
+        }
+
+        if (answers == 4) {     // if number fo answers eqauls number of questions
+            check_answers()
+        } else {
+            alert('You did not answer all the questions. Please go back and answer any questions you missed.');
+        }
+    }
+
+    function check_answers() {
+        // check that the right answers where chosen 
+        if (!(document.getElementById('q1a2').checked && document.getElementById('q2a3').checked && document.getElementById('q3a2').checked && document.getElementById('q4a3').checked)) {
+            incorrectC1 = incorrectC1 + 1;
+            alert('You have made an error, please check your answers.');    
+        } else {
+            var src = document.getElementById("buttons");
+            var submitButton = document.getElementById("submitButton");
+            var instructButton = document.getElementById("instructButton");
+            var nextButton = document.createElement("button");
+            nextButton.textContent = 'Correct! Press to continue.';
+            nextButton.setAttribute("id", "next");
+            nextButton.setAttribute("value", "submit");
+            nextButton.setAttribute("class", "btn btn-success btn-lg center-block continue");        
+            src.appendChild(nextButton);
+            src.removeChild(submitButton);
+            src.removeChild(instructButton);
+        };
+
+    }
+</script>

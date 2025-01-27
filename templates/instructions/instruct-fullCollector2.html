@@ -1,0 +1,60 @@
+<script>
+    $("body").unbind("keydown").focus().keydown(continue_handler);
+</script>
+
+
+<div id="container-instructions">
+
+    <h1>Collector Game: Instructions</h1>
+
+    <hr/>
+
+    <div class="instructions well">
+
+        <div class="row container-fluid">
+            <p>
+                <font size=4> 
+                    Before every turn, you will know how many gems or bombs are added with each response when you see an image like the following.
+                    <br><br>
+                    <center>
+                        EXAMPLE:
+                        <img src='{{ server_location }} static/images/instructionImage/Gain1_Pun1.png' height="100">
+                    </center>
+                    <br><br>
+                    On the <b>LEFT</b> side of your bank, next to the <b><font style="color:green">green checkmark</font></b>, you will see <b>how many gems you can add</b> to your bank for <b>each <font style="color:green">correct response</font></b>. In this example, each correct response adds one gem to your bank. 
+                    <br><br>
+                    On the <b>RIGHT</b> side of your bank, next to the <b><font style="color:red">red X</font></b>, you will see <b>how many bombs will be added</b> to your bank for <b>each <font style="color:red">incorrect response</font></b>. In this example, each incorrect response adds one bomb to your bank. 
+                    
+                    <br><br><br><br>
+                    At the end of each turn, you will see the number of gems added AND the number of bombs added on that turn like this.
+                    <br><br>
+                    <center>
+                        <img src='{{ server_location }} static/images/instructionImage/FeedbackCollector.png' height="100" >
+                    </center>
+                </font>
+            </p>
+        </div>
+</div>
+<script type="text/javascript">
+            $('#highPunish1,#highPunish2').html(highPun.toFixed(0));
+            $('#lowPunish1,#lowPunish2').html(lowPun.toFixed(0));
+            $("body").unbind("keydown").focus().keydown(continue_handler);
+</script>
+
+<hr />
+
+<div class="instructionsnav">
+    <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+            <button type="button" id="next" value="next" class="btn btn-success btn-lg center-block continue">
+                Continue
+            </button>
+        </div>
+        <div class="col-xs-2">
+        </div>
+    </div>
+</div>
+
+</div>
