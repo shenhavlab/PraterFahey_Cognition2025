@@ -5,3 +5,7 @@ Motivational context determines the impact of aversive outcomes on mental effort
 
 [Paper link here](https://10.1016/j.cognition.2024.105973)
 
+
+
+
+
